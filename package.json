@@ -1,0 +1,24 @@
+{
+  "name": "wave-cafe",
+  "version": "1.0.0",
+  "description": "The Wave Cafe - Modern Food Ordering Website",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "keywords": ["cafe", "food", "ordering", "nodejs", "express", "mongodb"],
+  "author": "Wave Cafe",
+  "license": "MIT"
+}

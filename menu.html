@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu — The Wave Cafe</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌊</text></svg>">
+</head>
+<body class="page-enter">
+
+<!-- ── Navbar ─────────────────────────────────────── -->
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="/index.html" class="nav-logo"><span class="wave-icon">🌊</span> The Wave Cafe</a>
+    <div class="nav-links">
+      <a href="/index.html" class="nav-link">Home</a>
+      <a href="/menu.html"  class="nav-link active">Menu</a>
+      <a href="/cart.html"  class="nav-link">Cart</a>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-toggle"><span class="theme-icon">🌙</span></button>
+      <button class="nav-login-btn btn btn-sm btn-outline open-login">Login</button>
+      <span class="nav-user-chip" style="display:none;font-size:0.85rem;font-weight:600;color:var(--primary);"></span>
+      <button class="nav-logout-btn btn btn-sm btn-ghost" style="display:none;">Logout</button>
+      <button class="cart-btn" onclick="openCartSidebar()">🛒<span class="cart-badge" style="display:none;">0</span></button>
+      <button class="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-nav">
+  <a href="/index.html" class="nav-link">🏠 Home</a>
+  <a href="/menu.html"  class="nav-link active">🍽️ Menu</a>
+  <a href="/cart.html"  class="nav-link">🛒 Cart</a>
+</div>
+
+<!-- Cart sidebar -->
+<div class="cart-overlay"></div>
+<div class="cart-sidebar">
+  <div class="cart-header"><h3>Your Cart 🛒</h3><div class="cart-close">✕</div></div>
+  <div class="cart-items"></div>
+  <div class="cart-footer">
+    <div class="cart-summary"></div>
+    <a href="/checkout.html" class="btn btn-primary w-full">Checkout →</a>
+    <a href="/cart.html" class="btn btn-ghost w-full" style="margin-top:10px;">View Cart</a>
+  </div>
+</div>
+
+<!-- ── Page Header ─────────────────────────────────── -->
+<div class="page-hero">
+  <div class="container">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+      <div>
+        <h1>Our Menu 🍽️</h1>
+        <p>Explore <span id="itemCount">—</span> delicious items</p>
+      </div>
+      <!-- Search -->
+      <div class="search-bar">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Search food, drinks...">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Menu Body ───────────────────────────────────── -->
+<div class="section-sm">
+  <div class="container">
+    <!-- Category Tabs -->
+    <div class="category-tabs" id="categoryTabs"></div>
+
+    <!-- Food Grid -->
+    <div class="food-grid" id="menuGrid">
+      <!-- Loaded by menu.js -->
+    </div>
+  </div>
+</div>
+
+<!-- ── Footer ─────────────────────────────────────── -->
+<footer class="footer">
+  <div class="container footer-bottom" style="border-top:none;padding-top:24px;">
+    <span>© 2024 The Wave Cafe</span>
+    <a href="/admin/admin-login.html" style="color:var(--primary);">Admin</a>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/menu.js"></script>
+<script>
+  // Handle URL category param
+  const urlCat = new URLSearchParams(window.location.search).get('cat');
+  if (urlCat) {
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => filterCategory(urlCat), 300);
+    });
+  }
+</script>
+</body>
+</html>

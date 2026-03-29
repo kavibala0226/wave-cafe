@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — The Wave Cafe</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌊</text></svg>">
+</head>
+<body class="page-enter">
+
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="/index.html" class="nav-logo"><span class="wave-icon">🌊</span> The Wave Cafe</a>
+    <div class="nav-links">
+      <a href="/index.html" class="nav-link">Home</a>
+      <a href="/menu.html"  class="nav-link">Menu</a>
+      <a href="/cart.html"  class="nav-link">Cart</a>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-toggle"><span class="theme-icon">🌙</span></button>
+      <button class="nav-login-btn btn btn-sm btn-outline open-login">Login</button>
+      <span class="nav-user-chip" style="display:none;font-size:0.85rem;font-weight:600;color:var(--primary);"></span>
+      <button class="nav-logout-btn btn btn-sm btn-ghost" style="display:none;">Logout</button>
+      <a href="/cart.html" class="cart-btn">🛒<span class="cart-badge" style="display:none;">0</span></a>
+      <button class="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-nav">
+  <a href="/index.html" class="nav-link">Home</a>
+  <a href="/menu.html" class="nav-link">Menu</a>
+  <a href="/cart.html" class="nav-link">Cart</a>
+</div>
+
+<div class="page-hero">
+  <div class="container">
+    <h1>Checkout</h1>
+    <p>Almost there! Fill in your delivery details</p>
+  </div>
+</div>
+
+<div class="checkout-page">
+  <div class="container">
+    <div class="checkout-grid">
+
+      <!-- Delivery Details Form -->
+      <div>
+        <form class="form-card" id="orderForm">
+          <h2>Delivery Details</h2>
+
+          <div class="form-group">
+            <label class="form-label">Full Name *</label>
+            <input class="form-input" id="checkoutName" type="text" placeholder="John Doe" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Phone Number *</label>
+            <input class="form-input" id="checkoutPhone" type="tel" placeholder="10-digit number" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Delivery Address *</label>
+            <textarea class="form-input" id="checkoutAddress" rows="3" placeholder="Flat/House no, Street, Area, City, Pincode" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Order Note (optional)</label>
+            <textarea class="form-input" id="checkoutNote" rows="2" placeholder="Any special instructions? e.g. Extra sauce, no onions..."></textarea>
+          </div>
+
+          <!-- Payment Method -->
+          <div class="form-card" style="padding:20px;background:var(--bg-secondary);margin-bottom:20px;">
+            <h3 style="font-size:1rem;margin-bottom:16px;">Payment Method</h3>
+            <label style="display:flex;align-items:center;gap:10px;cursor:pointer;">
+              <input type="radio" name="payment" value="cod" checked style="accent-color:var(--primary);">
+              <span>💵 Cash on Delivery</span>
+            </label>
+            <label style="display:flex;align-items:center;gap:10px;cursor:pointer;margin-top:10px;color:var(--text-muted);">
+              <input type="radio" name="payment" value="online" disabled style="accent-color:var(--primary);">
+              <span>💳 Online Payment (Coming Soon)</span>
+            </label>
+          </div>
+
+          <button type="submit" id="placeOrderBtn" class="btn btn-primary btn-lg w-full">
+            Place Order
+          </button>
+        </form>
+      </div>
+
+      <!-- Order Summary -->
+      <div>
+        <div class="order-summary-card">
+          <h3>Order Summary</h3>
+          <div id="checkoutItems" style="margin-bottom:16px;"></div>
+          <div class="divider"></div>
+          <div id="checkoutSummaryRows"></div>
+          <div class="divider"></div>
+          <div style="display:flex;justify-content:space-between;font-weight:700;font-size:1.1rem;">
+            <span>Total to Pay</span>
+            <span id="checkoutTotal" style="color:var(--primary);">Calculating...</span>
+          </div>
+
+          <div style="margin-top:20px;background:rgba(255,107,53,0.06);border:1px solid rgba(255,107,53,0.15);border-radius:var(--radius-sm);padding:14px;font-size:0.825rem;">
+            <div style="font-weight:600;margin-bottom:6px;">Order Details</div>
+            <div style="color:var(--text-secondary);display:flex;flex-direction:column;gap:4px;">
+              <span>Payment: Cash on Delivery</span>
+              <span>Estimated Time: 25-35 min</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer class="footer" style="margin-top:60px;">
+  <div class="container footer-bottom" style="border-top:none;">
+    <span>2024 The Wave Cafe</span>
+    <a href="/admin/admin-login.html" style="color:var(--primary);">Admin</a>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/checkout.js"></script>
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Wave Cafe — Fresh Food, Good Vibes</title>
+  <meta name="description" content="Order delicious food online from The Wave Cafe. Burgers, Pizza, Drinks & more delivered to your door.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌊</text></svg>">
+</head>
+<body>
+
+<!-- ── Navbar ─────────────────────────────────────── -->
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="/index.html" class="nav-logo">
+      <span class="wave-icon">🌊</span> The Wave Cafe
+    </a>
+
+    <div class="nav-links">
+      <a href="/index.html"  class="nav-link active">Home</a>
+      <a href="/menu.html"   class="nav-link">Menu</a>
+      <a href="/cart.html"   class="nav-link">Cart</a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="theme-toggle" title="Toggle dark mode"><span class="theme-icon">🌙</span></button>
+
+      <button class="nav-login-btn btn btn-sm btn-outline open-login">Login</button>
+      <span class="nav-user-chip" style="display:none;font-size:0.85rem;font-weight:600;color:var(--primary);"></span>
+      <button class="nav-logout-btn btn btn-sm btn-ghost" style="display:none;">Logout</button>
+
+      <a href="/cart.html" class="cart-btn" title="View cart">
+        🛒
+        <span class="cart-badge" style="display:none;">0</span>
+      </a>
+
+      <button class="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile nav -->
+<div class="mobile-nav">
+  <a href="/index.html" class="nav-link active">🏠 Home</a>
+  <a href="/menu.html"  class="nav-link">🍽️ Menu</a>
+  <a href="/cart.html"  class="nav-link">🛒 Cart</a>
+  <button class="btn btn-primary open-login" style="margin-top:8px;">Login</button>
+</div>
+
+<!-- Cart sidebar -->
+<div class="cart-overlay"></div>
+<div class="cart-sidebar">
+  <div class="cart-header">
+    <h3>Your Cart 🛒</h3>
+    <div class="cart-close">✕</div>
+  </div>
+  <div class="cart-items"></div>
+  <div class="cart-footer">
+    <div class="cart-summary"></div>
+    <a href="/checkout.html" class="btn btn-primary w-full">Proceed to Checkout →</a>
+    <a href="/cart.html" class="btn btn-ghost w-full mt-8" style="margin-top:10px;">View Full Cart</a>
+  </div>
+</div>
+
+<!-- ── Hero ───────────────────────────────────────── -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge fade-in">
+        🔥 Fresh &amp; Made to Order
+      </div>
+      <h1 class="hero-title fade-in stagger-1">
+        Taste the <span class="highlight">Wave</span><br>
+        Feel the Vibe
+      </h1>
+      <p class="hero-desc fade-in stagger-2">
+        Handcrafted burgers, stone-baked pizzas, tropical drinks and dreamy desserts — all delivered hot to your door.
+      </p>
+      <div class="hero-cta fade-in stagger-3">
+        <a href="/menu.html" class="btn btn-primary btn-lg">🍔 Order Now</a>
+        <button class="btn btn-outline btn-lg open-login">Login / Sign Up</button>
+      </div>
+      <div class="hero-stats fade-in stagger-4">
+        <div class="stat-item">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Menu Items</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">25 min</div>
+          <div class="stat-label">Avg. Delivery</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">4.8 ★</div>
+          <div class="stat-label">Rating</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-img-wrap">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80" alt="Delicious burger">
+      </div>
+      <div class="hero-badge-card card-1">
+        <span class="badge-icon">🚀</span>
+        <div>
+          <div style="font-size:0.75rem;color:var(--text-muted);">Fast Delivery</div>
+          <div>Free above ₹300</div>
+        </div>
+      </div>
+      <div class="hero-badge-card card-2">
+        <span class="badge-icon">⭐</span>
+        <div>
+          <div style="font-size:0.75rem;color:var(--text-muted);">Top Rated</div>
+          <div>4.8 / 5 stars</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Categories ─────────────────────────────────── -->
+<section class="section-sm" style="background:var(--bg-secondary);">
+  <div class="container">
+    <div class="section-title-wrap">
+      <div>
+        <div class="section-tag">BROWSE BY CATEGORY</div>
+        <h2 class="section-title">What Are You<br>Craving Today?</h2>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:16px;">
+      <a href="/menu.html?cat=Burgers" class="fade-in" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);padding:24px 16px;text-align:center;transition:all var(--transition);cursor:pointer;text-decoration:none;color:inherit;" onmouseover="this.style.borderColor='var(--primary)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform=''">
+        <div style="font-size:2.5rem;margin-bottom:10px;">🍔</div>
+        <div style="font-weight:600;font-size:0.9rem;">Burgers</div>
+      </a>
+      <a href="/menu.html?cat=Pizza" class="fade-in stagger-1" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);padding:24px 16px;text-align:center;transition:all var(--transition);cursor:pointer;text-decoration:none;color:inherit;" onmouseover="this.style.borderColor='var(--primary)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform=''">
+        <div style="font-size:2.5rem;margin-bottom:10px;">🍕</div>
+        <div style="font-weight:600;font-size:0.9rem;">Pizza</div>
+      </a>
+      <a href="/menu.html?cat=Drinks" class="fade-in stagger-2" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);padding:24px 16px;text-align:center;transition:all var(--transition);cursor:pointer;text-decoration:none;color:inherit;" onmouseover="this.style.borderColor='var(--primary)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform=''">
+        <div style="font-size:2.5rem;margin-bottom:10px;">🥤</div>
+        <div style="font-weight:600;font-size:0.9rem;">Drinks</div>
+      </a>
+      <a href="/menu.html?cat=Desserts" class="fade-in stagger-3" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);padding:24px 16px;text-align:center;transition:all var(--transition);cursor:pointer;text-decoration:none;color:inherit;" onmouseover="this.style.borderColor='var(--primary)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform=''">
+        <div style="font-size:2.5rem;margin-bottom:10px;">🍰</div>
+        <div style="font-weight:600;font-size:0.9rem;">Desserts</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Featured Items ──────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="section-title-wrap">
+      <div>
+        <div class="section-tag">⭐ FEATURED</div>
+        <h2 class="section-title">Fan Favourites</h2>
+      </div>
+      <a href="/menu.html" class="btn btn-outline">View Full Menu →</a>
+    </div>
+    <div class="food-grid" id="featuredGrid">
+      <!-- Skeleton loaders -->
+      <div class="food-card"><div class="skeleton" style="height:200px;border-radius:16px 16px 0 0;"></div><div style="padding:16px;"><div class="skeleton" style="height:14px;width:60%;margin-bottom:10px;"></div><div class="skeleton" style="height:18px;margin-bottom:8px;"></div><div class="skeleton" style="height:12px;width:80%;margin-bottom:14px;"></div><div class="skeleton" style="height:32px;border-radius:50px;"></div></div></div>
+      <div class="food-card"><div class="skeleton" style="height:200px;border-radius:16px 16px 0 0;"></div><div style="padding:16px;"><div class="skeleton" style="height:14px;width:60%;margin-bottom:10px;"></div><div class="skeleton" style="height:18px;margin-bottom:8px;"></div><div class="skeleton" style="height:12px;width:80%;margin-bottom:14px;"></div><div class="skeleton" style="height:32px;border-radius:50px;"></div></div></div>
+      <div class="food-card"><div class="skeleton" style="height:200px;border-radius:16px 16px 0 0;"></div><div style="padding:16px;"><div class="skeleton" style="height:14px;width:60%;margin-bottom:10px;"></div><div class="skeleton" style="height:18px;margin-bottom:8px;"></div><div class="skeleton" style="height:12px;width:80%;margin-bottom:14px;"></div><div class="skeleton" style="height:32px;border-radius:50px;"></div></div></div>
+      <div class="food-card"><div class="skeleton" style="height:200px;border-radius:16px 16px 0 0;"></div><div style="padding:16px;"><div class="skeleton" style="height:14px;width:60%;margin-bottom:10px;"></div><div class="skeleton" style="height:18px;margin-bottom:8px;"></div><div class="skeleton" style="height:12px;width:80%;margin-bottom:14px;"></div><div class="skeleton" style="height:32px;border-radius:50px;"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Why Wave Cafe ───────────────────────────────── -->
+<section class="section" style="background:var(--bg-secondary);">
+  <div class="container">
+    <div class="text-center mb-24">
+      <div class="section-tag">WHY CHOOSE US</div>
+      <h2 class="section-title">The Wave Difference</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;">
+      <div class="fade-in" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;text-align:center;">
+        <div style="font-size:3rem;margin-bottom:16px;">🌿</div>
+        <h3 style="font-family:var(--font-display);font-size:1.1rem;margin-bottom:8px;">Fresh Ingredients</h3>
+        <p style="color:var(--text-secondary);font-size:0.875rem;">Sourced daily from local farms. No preservatives, no shortcuts.</p>
+      </div>
+      <div class="fade-in stagger-1" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;text-align:center;">
+        <div style="font-size:3rem;margin-bottom:16px;">⚡</div>
+        <h3 style="font-family:var(--font-display);font-size:1.1rem;margin-bottom:8px;">Lightning Fast</h3>
+        <p style="color:var(--text-secondary);font-size:0.875rem;">25-minute average delivery. Hot food, every time, guaranteed.</p>
+      </div>
+      <div class="fade-in stagger-2" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;text-align:center;">
+        <div style="font-size:3rem;margin-bottom:16px;">💰</div>
+        <h3 style="font-family:var(--font-display);font-size:1.1rem;margin-bottom:8px;">Best Value</h3>
+        <p style="color:var(--text-secondary);font-size:0.875rem;">Restaurant quality food at prices that won't break the bank.</p>
+      </div>
+      <div class="fade-in stagger-3" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;text-align:center;">
+        <div style="font-size:3rem;margin-bottom:16px;">📱</div>
+        <h3 style="font-family:var(--font-display);font-size:1.1rem;margin-bottom:8px;">Easy Ordering</h3>
+        <p style="color:var(--text-secondary);font-size:0.875rem;">Order in seconds with our simple app. Track live, always.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA Banner ──────────────────────────────────── -->
+<section style="background:linear-gradient(165deg,#3abcd6 0%,#2c5a68 100%);padding:80px 0;text-align:center;">
+  <div class="container">
+    <h2 style="font-family:var(--font-display);font-size:2.5rem;color:#fff;margin-bottom:16px;">Ready to Order?</h2>
+    <p style="color:rgba(255,255,255,0.85);font-size:1.1rem;margin-bottom:32px;max-width:480px;margin-left:auto;margin-right:auto;">Join thousands of happy customers. Sign up and get your first delivery free!</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="/menu.html" class="btn btn-lg" style="background:#fff;color:var(--primary);">🍕 Browse Menu</a>
+      <button class="btn btn-lg btn-outline open-login" style="border-color:rgba(255,255,255,0.6);color:#fff;">Create Account</button>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ─────────────────────────────────────── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">🌊 The Wave Cafe</div>
+        <p class="footer-desc">Fresh food made with love. Delivering happiness to your doorstep since 2024.</p>
+        <div style="display:flex;gap:12px;margin-top:20px;">
+          <span style="cursor:pointer;font-size:1.4rem;">📘</span>
+          <span style="cursor:pointer;font-size:1.4rem;">📸</span>
+          <span style="cursor:pointer;font-size:1.4rem;">🐦</span>
+        </div>
+      </div>
+      <div>
+        <div class="footer-title">Quick Links</div>
+        <a href="/index.html" class="footer-link">Home</a>
+        <a href="/menu.html"  class="footer-link">Menu</a>
+        <a href="/cart.html"  class="footer-link">Cart</a>
+      </div>
+      <div>
+        <div class="footer-title">Categories</div>
+        <a href="/menu.html?cat=Burgers"  class="footer-link">Burgers</a>
+        <a href="/menu.html?cat=Pizza"    class="footer-link">Pizza</a>
+        <a href="/menu.html?cat=Drinks"   class="footer-link">Drinks</a>
+        <a href="/menu.html?cat=Desserts" class="footer-link">Desserts</a>
+      </div>
+      <div>
+        <div class="footer-title">Info</div>
+        <span class="footer-link">About Us</span>
+        <span class="footer-link">Contact</span>
+        <span class="footer-link">Privacy Policy</span>
+        <a href="/admin/admin-login.html" class="footer-link" style="color:var(--primary);">Admin Panel</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 The Wave Cafe. All rights reserved.</span>
+      <span>Made with ❤️ by Wave Team</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/auth.js"></script>
+<script>
+  // Load featured items
+  fetch('/api/menu/featured')
+    .then(r => r.json())
+    .then(data => {
+      const grid  = document.getElementById('featuredGrid');
+      const items = data.items || [];
+      if (!items.length) { grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:40px;">Start the server to see featured items!</div>'; return; }
+
+      grid.innerHTML = items.map(item => {
+        const key = item._id || item.name;
+        return `
+        <div class="food-card fade-in">
+          <div class="food-card-img">
+            <img src="${item.image}" alt="${item.name}" loading="lazy">
+            <div class="food-card-badge">${item.category}</div>
+          </div>
+          <div class="food-card-body">
+            <div class="food-card-cat">${item.category}</div>
+            <div class="food-card-name">${item.name}</div>
+            <div class="food-card-desc">${item.description}</div>
+            <div class="food-card-footer">
+              <div>
+                <div class="food-rating"><span class="star">★</span> ${item.rating || 4.5}</div>
+                <div class="food-price">₹${item.price}</div>
+              </div>
+              <button class="add-btn" onclick='addToCart(${JSON.stringify(item)})'>+ Add</button>
+            </div>
+          </div>
+        </div>`;
+      }).join('');
+
+      document.querySelectorAll('.fade-in').forEach(el => {
+        const obs = new IntersectionObserver(entries => { entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }); });
+        obs.observe(el);
+      });
+    })
+    .catch(() => {
+      document.getElementById('featuredGrid').innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--text-muted);"><div style="font-size:3rem;">🌊</div><h3 style="margin-top:16px;">Start the server to load menu!</h3><p style="margin-top:8px;">Run: <code>node server/server.js</code></p></div>';
+    });
+
+  // Handle category URL params
+  const urlCat = new URLSearchParams(window.location.search).get('cat');
+  if (urlCat) window.location.href = `/menu.html?cat=${urlCat}`;
+</script>
+</body>
+</html>

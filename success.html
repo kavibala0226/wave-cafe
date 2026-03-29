@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Placed! — The Wave Cafe</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌊</text></svg>">
+</head>
+<body style="background:var(--bg);">
+
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="/index.html" class="nav-logo"><span class="wave-icon">🌊</span> The Wave Cafe</a>
+    <div class="nav-actions">
+      <button class="theme-toggle"><span class="theme-icon">🌙</span></button>
+      <a href="/menu.html" class="btn btn-primary btn-sm">Order More</a>
+    </div>
+  </div>
+</nav>
+
+<div class="success-page" style="padding-top:80px;">
+  <div class="success-card">
+
+    <div class="success-animation">✓</div>
+
+    <h1 style="font-family:var(--font-display);">Order Placed!</h1>
+    <p style="color:var(--text-secondary);margin-bottom:4px;">Thank you for ordering from The Wave Cafe</p>
+    <p style="color:var(--text-secondary);">Your food is being prepared with love ❤️</p>
+
+    <div class="order-id-chip" id="orderIdDisplay">Order #WC000000</div>
+
+    <!-- Order progress steps -->
+    <div class="order-steps">
+      <div class="step active">
+        <div class="step-icon">✅</div>
+        <div class="step-label">Confirmed</div>
+      </div>
+      <div class="step" id="step2">
+        <div class="step-icon">👨‍🍳</div>
+        <div class="step-label">Preparing</div>
+      </div>
+      <div class="step" id="step3">
+        <div class="step-icon">🚴</div>
+        <div class="step-label">On the Way</div>
+      </div>
+      <div class="step" id="step4">
+        <div class="step-icon">🏠</div>
+        <div class="step-label">Delivered</div>
+      </div>
+    </div>
+
+    <!-- ETA card -->
+    <div style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--radius-md);padding:20px;margin-bottom:28px;text-align:left;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+        <span style="font-weight:600;">Estimated Delivery</span>
+        <span style="color:var(--primary);font-weight:700;font-family:var(--font-display);">25-35 min</span>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <span style="font-weight:600;">Amount Paid</span>
+        <span id="orderTotal" style="font-weight:700;font-family:var(--font-display);">Cash on Delivery</span>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px;width:100%;">
+      <a href="/index.html" class="btn btn-primary btn-lg" style="justify-content:center;">Back to Home</a>
+      <a href="/menu.html"  class="btn btn-outline btn-lg" style="justify-content:center;">Order More Food</a>
+    </div>
+
+    <p style="margin-top:24px;font-size:0.8rem;color:var(--text-muted);">Questions? Call us at <strong>+91 98765 43210</strong></p>
+  </div>
+</div>
+
+<script src="/js/main.js"></script>
+<script>
+  // Load last order details
+  const lastOrder = JSON.parse(localStorage.getItem('wc_last_order') || '{}');
+  if (lastOrder.orderId) {
+    document.getElementById('orderIdDisplay').textContent = 'Order #' + lastOrder.orderId;
+  }
+  if (lastOrder.total) {
+    document.getElementById('orderTotal').textContent = 'Rs.' + lastOrder.total + ' (COD)';
+  }
+
+  // Simulate order progress animation
+  let stepIdx = 1;
+  const steps = ['step2','step3','step4'];
+  const interval = setInterval(() => {
+    if (stepIdx < steps.length) {
+      document.getElementById(steps[stepIdx])?.classList.add('active');
+      stepIdx++;
+    } else {
+      clearInterval(interval);
+    }
+  }, 2500);
+
+  // Confetti burst (CSS-only, simple)
+  const colors = ['#FF6B35','#00D4FF','#00C896','#FFB020','#FF4757'];
+  for (let i = 0; i < 30; i++) {
+    const el = document.createElement('div');
+    el.style.cssText = `
+      position:fixed;
+      top:${Math.random()*40}%;
+      left:${Math.random()*100}%;
+      width:${6+Math.random()*8}px;
+      height:${6+Math.random()*8}px;
+      background:${colors[Math.floor(Math.random()*colors.length)]};
+      border-radius:${Math.random()>0.5?'50%':'2px'};
+      animation:confettiFall ${1.5+Math.random()*2}s ease-in ${Math.random()*1}s forwards;
+      z-index:9999;
+      pointer-events:none;
+    `;
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 4000);
+  }
+
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes confettiFall {
+      0%   { transform: translateY(-20px) rotate(0deg); opacity:1; }
+      100% { transform: translateY(80vh) rotate(720deg); opacity:0; }
+    }
+  `;
+  document.head.appendChild(style);
+</script>
+</body>
+</html>
